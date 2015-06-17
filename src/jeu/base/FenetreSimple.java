@@ -23,6 +23,7 @@ public class FenetreSimple extends FenetreAbstraite {
 
 	public FenetreSimple(String title) {
 		super(title);
+	    voix.stop();
 	}
 
 	// un label

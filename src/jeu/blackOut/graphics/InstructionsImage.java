@@ -60,10 +60,11 @@ public class InstructionsImage extends FenetreSimple implements ActionListener {
     private String aideF1Exemple = "../ressources/sons/F1/aideF1Exemple.wav";
 
     @Override
-    protected String wavRegleJeu() {
+    protected String wavRegleJeu()
+    {
         return aideF1Exemple;
     }
-    
+
     /**
      * Instantiates a new instructions image.
      */
@@ -175,6 +176,8 @@ public class InstructionsImage extends FenetreSimple implements ActionListener {
 
         this.contentPane.add(this.westPanel, BorderLayout.WEST);
 
+        this.actualizeButtons();
+
     }
 
     /*
@@ -231,12 +234,14 @@ public class InstructionsImage extends FenetreSimple implements ActionListener {
             this.changeRight();
             this.launchVoice();
             this.actualizeLabel();
+            this.actualizeButtons();
         }
         else if (e.getSource() == this.previous)
         {
             this.changeLeft();
             this.launchVoice();
             this.actualizeLabel();
+            this.actualizeButtons();
 
         }
         else if (e.getSource() == this.quit)
@@ -247,16 +252,30 @@ public class InstructionsImage extends FenetreSimple implements ActionListener {
 
     }
 
+    private void actualizeButtons()
+    {
+        int prev = this.imageNumber;
+        int suiv = this.imageNumber + 2;
+
+        prev = (prev == 0) ? 3 : prev;
+        suiv = (suiv == 4) ? 1 : suiv;
+
+        this.previous.setText("< (" + prev + "/3)");
+        this.next.setText("(" + suiv + "/3) >");
+
+    }
+
     @Override
     public void keyPressed(KeyEvent e)
     {
         voix.stop();
         super.keyPressed(e);
 
-         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-             voix.stop();
-             Utils.imgFrame = null;
-         }
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+        {
+            voix.stop();
+            Utils.imgFrame = null;
+        }
 
         if (e.getKeyCode() == KeyEvent.VK_RIGHT)
         {

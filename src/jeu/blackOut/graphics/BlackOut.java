@@ -302,7 +302,7 @@ public class BlackOut extends FenetreSimple implements ActionListener {
                         BorderFactory.createEmptyBorder(1, 1, 1, 1)));
 
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-            Utils.gameLaunched = false;
+            BlackOut.actionOnClose();
         }
         if (e.getKeyCode() == KeyEvent.VK_F2) {
             voix.stop();
