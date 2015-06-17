@@ -20,7 +20,6 @@ public class LancementJeu {
      * @param args the arguments
      */
     public static void main(String args[]) {
-    	//new BlackOut();
         new Menu();
     }
  
