@@ -1,0 +1,6 @@
+musicChosen:music5.wav
+colorSaved:3
+sizeSaved:1
+voiceSaved:1
+musicDisabled:false
+epilepticEnabled:false
